@@ -17,13 +17,13 @@ public class Teste {
 					JOptionPane.showMessageDialog(null,
 							"voce acertou a letra =" + letraDigitada + "\n------------RESUMO-------------------"
 									+ "\n palavra adivinhada=" + jogo.getPalavra() + "\n total de acertos = "
-									+ jogo.getAcertos() + "\n penalidade = " + jogo.getNumeroPenalidade() + "-"
+									+ jogo.getAcertos() + "\n penalidade = " + jogo.getCodigoPenalidade() + "-"
 									+ jogo.getNomePenalidade() + "\n-------------------------------------");
 				else
 					JOptionPane.showMessageDialog(null,
 							"voce errou a letra =" + letraDigitada + "\n------------RESUMO-------------------"
 									+ "\n palavra adivinhada=" + jogo.getPalavra() + "\n total de acertos = "
-									+ jogo.getAcertos() + "\n penalidade = " + jogo.getNumeroPenalidade() + "-"
+									+ jogo.getAcertos() + "\n penalidade = " + jogo.getCodigoPenalidade() + "-"
 									+ jogo.getNomePenalidade() + "\n-------------------------------------");
 			} catch (Exception e) {
 				JOptionPane.showMessageDialog(null,"mensagem="+ e.getMessage());
