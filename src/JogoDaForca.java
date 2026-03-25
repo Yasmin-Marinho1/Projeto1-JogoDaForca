@@ -68,7 +68,23 @@ public class JogoDaForca {
 		return this.codigoPenalidade;
 	}
 	public String getNomePenalidade() {
-		return this.nomePenalidade;
+		this.nomePenalidade = "sem penalidades";
+		 switch (this.getCodigoPenalidade()) {
+			case 1:
+				return this.nomePenalidade = "perdeu primeira perna";
+			case 2:
+				return this.nomePenalidade = "perdeu segunda perna";
+			case 3:
+				return this.nomePenalidade = "perdeu primeiro braço";
+			case 4:
+				return this.nomePenalidade = "perdeu segundo braço";
+			case 5:
+				return this.nomePenalidade = "perdeu tronco";
+			case 6:
+				return this.nomePenalidade = "perdeu cabeça";
+			default: 
+				return this.nomePenalidade;
+		}
 	}
 	public String getResultado() {
 		this.resultado = "em andamento";
