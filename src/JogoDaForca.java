@@ -20,7 +20,7 @@ public class JogoDaForca {
 		this.palavrasForca = new ArrayList<>();
 		InputStream stream = this.getClass().getResourceAsStream("/dados/palavras.csv");
 		if (stream == null) {
-			JOptionPane.showMessageDialog(null, "Arquivo de palvras inexistente!");
+			JOptionPane.showMessageDialog(null, "Arquivo de palavras inexistente!");
 			System.exit(0);
 		}
 		Scanner arquivo = new Scanner(stream);
@@ -69,7 +69,7 @@ public class JogoDaForca {
 	}
 	public String getNomePenalidade() {
 		this.nomePenalidade = "sem penalidades";
-		 switch (this.getCodigoPenalidade()) {
+		switch (this.getCodigoPenalidade()) {
 			case 1:
 				return this.nomePenalidade = "perdeu primeira perna";
 			case 2:
