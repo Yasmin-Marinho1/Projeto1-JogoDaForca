@@ -72,9 +72,15 @@ public class JogoDaForca {
 		encontrada, ou contabiliza uma penalidade, na sua ausência. Lança uma exceção verificada (classe
 		Exception) se “letra” tiver 0 ou mais de 1 caractere. Considere que “letra” pode estar em maiúscula ou minúscula.*/
 	}
+	
 	public boolean terminou() {
-		// retorna true se o jogo terminou.
+		if (getAcertos() == this.palavra.length() || getCodigoPenalidade() == 6) {
+			return true;
+		} else {
+			return false;
+		}
 	}
+
 	public int getAcertos() {
 		return this.acertos;
 	}
