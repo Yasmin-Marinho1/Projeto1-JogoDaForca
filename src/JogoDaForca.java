@@ -57,7 +57,7 @@ public class JogoDaForca {
 		o momento e ocultando ("*") as letras ainda não adivinhadas. */
 	}
 	public ArrayList<String> getResultados() {
-		if (this.terminou() && sorteiosAnteriores.size() - 1 == palavrasAnteriores.size()) {
+		if (this.terminou() && sorteiosAnteriores.size() > palavrasAnteriores.size()) {
 			palavrasAnteriores.add(this.getPalavra() + " => " + this.getResultado());
 		} return this.palavrasAnteriores;
 	}
