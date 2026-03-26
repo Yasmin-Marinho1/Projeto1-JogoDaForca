@@ -37,6 +37,8 @@ public class JogoDaForca {
 		} arquivo.close();
 	}
 	public void iniciar() {
+		this.codigoPenalidade = 0;
+		this.acertos = 0;
 		if (palavrasForca.size() <= sorteiosAnteriores.size()) {
 			sorteiosAnteriores.clear();
 		}
