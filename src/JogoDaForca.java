@@ -40,6 +40,7 @@ public class JogoDaForca {
 	public void iniciar() {
 		this.codigoPenalidade = 0;
 		this.acertos = 0;
+		this.reveladas.clear();
 		if (palavrasForca.size() <= sorteiosAnteriores.size()) {
 			sorteiosAnteriores.clear();
 		}
@@ -56,7 +57,6 @@ public class JogoDaForca {
 		return this.dica;
 	}
 	public String getPalavra() {
-
 		String revelacao = new String();
 		
 		/* Verifica quais índices da palavra foram revelados e adiciona * ou a letra revelada. */
