@@ -14,6 +14,7 @@ public class JogoDaForca {
     private String nomePenalidade;
     private String resultado;
     private ArrayList<String> palavrasAnteriores = new ArrayList<>();
+	private ArrayList<String> letrasAnteriores = new ArrayList<>();
     private ArrayList<Integer> sorteiosAnteriores = new ArrayList<>();
     private ArrayList<Integer> ocorrencias;
     private ArrayList<ArrayList<String>> palavrasForca;
@@ -69,10 +70,34 @@ public class JogoDaForca {
 		} return this.palavrasAnteriores;
 	}
 	public ArrayList<Integer> getOcorrencias(String letra) throws Exception {
-		/*retorna uma lista com as posições (1 a N) da “letra” encontrada dentro da palavra sorteada ou, caso
-		contrário, retorna uma lista vazia. Além disso, contabiliza um acerto, para cada ocorrência da “letra”
-		encontrada, ou contabiliza uma penalidade, na sua ausência. Lança uma exceção verificada (classe
-		Exception) se “letra” tiver 0 ou mais de 1 caractere. Considere que “letra” pode estar em maiúscula ou minúscula.*/
+		/* Convertendo a letra para maiúsculo */
+		letra = letra.toUpperCase();
+
+		/* Verificando exceções */
+		if (letra.length() > 1) {
+			throw new IllegalArgumentException("Digite apenas uma letra");
+		}
+		if (this.letrasAnteriores.contains(letra)) {
+			throw new IllegalArgumentException("Letra já digitada anteriormente!");
+		}
+
+		/* Verificando se a letra está contida na palavra e guardando o índice caso esteja */
+		ArrayList<Integer> ocorrencias = new ArrayList<>();
+		for (int i = 0; i < this.palavra.length(); i++) {
+			if (palavra.substring(i, i+1).equals(letra)) {
+				ocorrencias.add(i);
+			}
+		}
+		/* Adicionando a letra digitada no array de letras anteriores */
+		letrasAnteriores.add(letra);
+
+		/* Verifica se o array gerado tem índices dentro ou se está vazio para adicionar acertos ou penalidades */
+		if (ocorrencias.isEmpty()) {
+			this.codigoPenalidade += 1;
+		} else {
+			this.acertos += ocorrencias.size();
+		}
+		return ocorrencias;
 	}
 	
 	public boolean terminou() {
