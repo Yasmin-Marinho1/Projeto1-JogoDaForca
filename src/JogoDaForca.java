@@ -16,7 +16,6 @@ public class JogoDaForca {
     private ArrayList<String> palavrasAnteriores = new ArrayList<>();
 	private ArrayList<String> letrasAnteriores = new ArrayList<>();
     private ArrayList<Integer> sorteiosAnteriores = new ArrayList<>();
-    private ArrayList<Integer> ocorrencias =  new ArrayList<>();
 	private ArrayList<Integer> reveladas = new ArrayList<>();
     private ArrayList<ArrayList<String>> palavrasForca;
     
@@ -81,16 +80,25 @@ public class JogoDaForca {
 		} return this.palavrasAnteriores;
 	}
 	public ArrayList<Integer> getOcorrencias(String letra) throws Exception {
-		/* Convertendo a letra para maiúsculo */
-		letra = letra.toUpperCase();
 
 		/* Verificando exceções */
-		if (letra.length() > 1) {
+		switch (letra) {
+
+			case String s when s.length() != 1 ->
 			throw new IllegalArgumentException("Digite apenas uma letra");
-		}
-		if (this.letrasAnteriores.contains(letra)) {
+
+			case String s when !s.matches("a-zA-z") ->
+			throw new IllegalArgumentException("Digite uma letra válida");
+
+			case String s when this.letrasAnteriores.contains(s) ->
 			throw new IllegalArgumentException("Letra já digitada anteriormente!");
+
+			default ->
+			letra = letra.toUpperCase();
 		}
+
+		/* Adicionando a letra digitada no array de letras anteriores */
+		letrasAnteriores.add(letra);
 
 		/* Verificando se a letra está contida na palavra e guardando o índice caso esteja */
 		ArrayList<Integer> ocorrencias = new ArrayList<>();
@@ -99,9 +107,6 @@ public class JogoDaForca {
 				ocorrencias.add(i);
 			}
 		}
-		/* Adicionando a letra digitada no array de letras anteriores */
-		letrasAnteriores.add(letra);
-
 		/* Verifica se o array gerado tem índices dentro ou se está vazio para adicionar acertos ou penalidades */
 		if (ocorrencias.isEmpty()) {
 			this.codigoPenalidade += 1;
