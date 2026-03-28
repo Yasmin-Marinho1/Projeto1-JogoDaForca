@@ -13,7 +13,7 @@ public class JogoDaForca {
     private int codigoPenalidade;
     private String nomePenalidade;
     private String resultado;
-    private ArrayList<String> palavrasAnteriores = new ArrayList<>();
+    private ArrayList<String> resultadosAnteriores = new ArrayList<>();
 	private ArrayList<String> letrasAnteriores = new ArrayList<>();
     private ArrayList<Integer> sorteiosAnteriores = new ArrayList<>();
 	private ArrayList<Integer> reveladas = new ArrayList<>();
@@ -59,7 +59,6 @@ public class JogoDaForca {
 	}
 	public String getPalavra() {
 		String revelacao = new String();
-		
 		/* Verifica quais índices da palavra foram revelados e adiciona * ou a letra revelada. */
 		for (int i = 0; i < this.palavra.length(); i++) {
 			if (this.reveladas.contains(i)) {
@@ -67,24 +66,21 @@ public class JogoDaForca {
 			} else {
 				revelacao += "*";
 			}
-		}
-		return revelacao;
+		} return revelacao;
 	}
 	public ArrayList<String> getResultados() {
 		if (this.terminou()) {
 			String adicionar = this.getPalavra() + " => " + this.getResultado();
-			if (palavrasAnteriores.isEmpty()) {
-				palavrasAnteriores.add(adicionar);
-			} else if(!palavrasAnteriores.getLast().equals(adicionar)) {
-				palavrasAnteriores.add(adicionar);
+			if (resultadosAnteriores.isEmpty()) {
+				resultadosAnteriores.add(adicionar);
+			} else if(!resultadosAnteriores.getLast().equals(adicionar)) {
+				resultadosAnteriores.add(adicionar);
 			}
-		} return this.palavrasAnteriores;
+		} return this.resultadosAnteriores;
 	}
 	public ArrayList<Integer> getOcorrencias(String letra) throws Exception {
-
 		/* Verificando exceções */
 		switch (letra) {
-
 			case String s when s.length() != 1 ->
 			throw new IllegalArgumentException("Digite apenas uma letra");
 
@@ -97,10 +93,8 @@ public class JogoDaForca {
 			default ->
 			letra = letra.toUpperCase();
 		}
-
 		/* Adicionando a letra digitada no array de letras anteriores */
 		letrasAnteriores.add(letra);
-
 		/* Verificando se a letra está contida na palavra e guardando o índice caso esteja */
 		ArrayList<Integer> ocorrencias = new ArrayList<>();
 		for (int i = 0; i < this.palavra.length(); i++) {
@@ -116,7 +110,6 @@ public class JogoDaForca {
 		}
 		return ocorrencias;
 	}
-	
 	public boolean terminou() {
 		if (getAcertos() == this.palavra.length() || getCodigoPenalidade() == 6) {
 			return true;
@@ -124,7 +117,6 @@ public class JogoDaForca {
 			return false;
 		}
 	}
-
 	public int getAcertos() {
 		return this.acertos;
 	}
