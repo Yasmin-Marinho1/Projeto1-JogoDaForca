@@ -62,7 +62,7 @@ public class JogoDaForca {
 		/* Verifica quais índices da palavra foram revelados e adiciona * ou a letra revelada. */
 		for (int i = 0; i < this.palavra.length(); i++) {
 			if (this.reveladas.contains(i)) {
-				revelacao += this.palavra.substring(i, i+1);
+				revelacao += this.palavra.substring(i, i+1).toLowerCase();
 			} else {
 				revelacao += "*";
 			}
