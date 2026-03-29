@@ -70,12 +70,7 @@ public class JogoDaForca {
 	}
 	public ArrayList<String> getResultados() {
 		if (this.terminou()) {
-			String adicionar = this.getPalavra() + " => " + this.getResultado();
-			if (resultadosAnteriores.isEmpty()) {
-				resultadosAnteriores.add(adicionar);
-			} else if(!resultadosAnteriores.getLast().equals(adicionar)) {
-				resultadosAnteriores.add(adicionar);
-			}
+			resultadosAnteriores.add(this.getPalavra() + " => " + this.getResultado());
 		} return this.resultadosAnteriores;
 	}
 	public ArrayList<Integer> getOcorrencias(String letra) throws Exception {
