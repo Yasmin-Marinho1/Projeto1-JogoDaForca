@@ -79,19 +79,18 @@ public class JogoDaForca {
 		} return this.resultadosAnteriores;
 	}
 	public ArrayList<Integer> getOcorrencias(String letra) throws Exception {
+		
 		/* Verificando exceções */
+		if (letra.length() != 1) {
+			throw new IllegalArgumentException("Digite uma letra");
+		}
 		letra = letra.toUpperCase();
-		switch (letra) {
-			case String s when s.length() != 1 ->
-			throw new IllegalArgumentException("Digite apenas uma letra");
 
-			case String s when !s.matches("[A-ZÇ]") ->
+		if (!letra.matches("[A-ZÇ]")) {
 			throw new IllegalArgumentException("Digite uma letra válida");
-
-			case String s when this.letrasAnteriores.contains(s) ->
+		} else if (this.letrasAnteriores.contains(letra)) {
 			throw new IllegalArgumentException("Letra já digitada anteriormente!");
-
-			default ->
+		} else {
 			letrasAnteriores.add(letra); /* Adicionando a letra digitada no array de letras anteriores */
 		}
 
