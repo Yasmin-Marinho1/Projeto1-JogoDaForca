@@ -76,14 +76,14 @@ public class JogoDaForca {
 		
 		/* Verificando exceções */
 		if (letra.length() != 1) {
-			throw new IllegalArgumentException("Digite uma letra");
+			throw new Exception("Digite uma letra");
 		}
 		letra = letra.toUpperCase();
 
 		if (!letra.matches("[A-Z]")) {
-			throw new IllegalArgumentException("Digite uma letra válida");
+			throw new Exception("Digite uma letra válida");
 		} else if (this.letrasAnteriores.contains(letra)) {
-			throw new IllegalArgumentException("Letra já digitada anteriormente!");
+			throw new Exception("Letra já digitada anteriormente!");
 		} else {
 			letrasAnteriores.add(letra); /* Adicionando a letra digitada no array de letras anteriores */
 		}
