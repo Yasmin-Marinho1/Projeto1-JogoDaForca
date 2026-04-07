@@ -37,20 +37,20 @@ java Teste.java
 ## Estrutura do Projeto
 
       Projeto1-JogoDaForca/
-      ├── src/
-      |   ├── dados/		        # Armazenamento
-      |   |   └──  palavras.csv
-      |   ├── imagens/		        # Imagens do jogo
-      |   |   ├── 0.png
-      |   |   ├── 1.png
-      |   |   ├── 2.png
-      |   |   ├── 3.png
-      |   |   ├── 4.png
-      |   |   ├── 5.png
-      |   |   └── 6.png
-      |   ├── JogodaForca.java      # Lógica principal
-      |   ├── TelaJogo.java	    # Interface Gráfica
-      |   └── Teste.java		    # Teste
+      └── src/
+          ├── dados/		        # Armazenamento
+          |   └──  palavras.csv
+          ├── imagens/		        # Imagens do jogo
+          |   ├── 0.png
+          |   ├── 1.png
+          |   ├── 2.png
+          |   ├── 3.png
+          |   ├── 4.png
+          |   ├── 5.png
+          |   └── 6.png
+          ├── JogodaForca.java      # Lógica principal
+          ├── TelaJogo.java	    # Interface Gráfica
+          └── Teste.java		    # Teste
 
 ## Autores
 - **Guilherme Mélo** - Desenvolvimento Full Stack - 
