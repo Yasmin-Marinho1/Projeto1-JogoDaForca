@@ -172,7 +172,7 @@ public class TelaJogo {
 			int i = jogo.getCodigoPenalidade();
 			String foto = String.format("/imagens/%d.png", i);
 			labelImagem.setIcon(new ImageIcon(TelaJogo.class.getResource(foto)));
-			if (!jogo.getResultado().equals("em andamento")) {
+			if (jogo.terminou()) {
 				labelResultado.setText("Você " + jogo.getResultado() + " - Inicie outro jogo!");
 				textField.setEnabled(false);
 				buttonAdivinhar.setEnabled(false);
